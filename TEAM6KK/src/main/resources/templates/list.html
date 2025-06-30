@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ページ | 予約注文システム</title>
+</head>
+
+<body><center><!--
+  <div class="colora">
+    <h1><img th:src="${base64Data}">
+      <font color="#115511">管理者ページ</font>
+    </h1>
+  </div>-->
+  <Strong>◎注文履歴</Strong><Form th:action="@{/call}" method="post">
+  <!--
+  ・名前:Aさん　　注文の品:ラーメン(500円)　
+  
+  <input type="submit" name="submit" value="通知" onclick="buttonClick2()">
+  <input type="submit" name="submit" value="受け取り済" onclick="buttonClick2()"><br> -->
+  <table>
+	  <th>ID</th>
+		<th>名前</th>
+		<th>アドレス</th>
+		<th>注文商品</th>
+		<th>注文数</th>
+		<th>記入事項</th>
+		<th>呼出</th>
+		<tr th:each="result : ${resultList}">
+			<td th:text="${result.ID}"></td>
+			<td th:text="${result.name}"></td>
+			<td th:text="${result.address}"></td>
+			<td th:text="${result.item}"></td>
+			<td th:text="${result.orders}"></td>
+			<td th:text="${result.message}"></td>
+			<td><input type="submit" name="callNo" th:value="${result.ID}"></td>
+		</tr>
+	</table></Form>
+	<br><button2><a th:href="@{/reset2}">　注文履歴をすべて削除する　</a></button2>　消したデータは二度と戻ってきません。よく考えたうえで押してください。<br><br>
+	
+	<div class="colorb"><form th:action="@{/callar}" method="post">
+	<strong>◎呼び出しメール内容変更　　</strong><input type="submit" name="submit10" value="変更する" /><br>
+	タイトル:<input type="text" name="mailtitle" id="mailtitle" size="70" value="予約注文していた商品が完成しました！！"><br>
+	内容:<textarea id="story2" name="story2" rows="5"  cols="90" maxlength="300">お待たせしました！！\nご注文いただいた商品が完成いたしました。\n本店までお越しください。</textarea>
+	</form></div><br>
+	
+  <button><a th:href="@{/list2}">商品を登録・変更する</a></button>
+	　<button><a th:href="@{/login}">ログアウト</a></button>
+  <div id="result">
+    <p id="user-list"></p>
+    <p id="result2"></p>
+  </div>
+  <script src="script.js"></script><br></center>
+
+  (c)2025 KokusaiRikouCollege.
+</body>
+
+</html>

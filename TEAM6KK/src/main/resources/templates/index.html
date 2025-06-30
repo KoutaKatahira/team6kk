@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOOKING SYSTEM</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" type="image/png" href="./image/logo2.png">
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <header class="header">
+      <!--<h1 class="main-title">TEAM6 元煕、片平</h1>-->
+      <!--<h2 class="sub-title">予約注文システム</h2>-->
+      <img src="./image/logo4.png" width="30%">
+    </header>
+
+	<div class="complete-container">
+    <form th:action="@{/result}" method="post" class="order-form">
+      <p class="section-title">▷ 名前、ネームアドレスを入力してください。(必須)</p>
+      <label for="name">名前</label>
+      <input type="text" name="name" id="name" placeholder="名前を記入"  required />
+
+      <label for="address">ネームアドレス</label>
+      <input type="email" name="address" id="address" placeholder="メールアドレスを記入"  required/>
+
+      <p class="section-title">▷ ご注文の品をお選びください。(必須)</p>
+      <label for="number1">注文数</label>
+      <input type="number" name="number1" id="number1" value="1" min="1" max="10" />
+
+      <div class="item-list">
+        <th:block th:each="item, iterStat : ${resultList}">
+          ▷<input type="checkbox" th:id="'rad' + ${iterStat.index}" name="rad1" th:value="${item.name}" th:checked="${iterStat.index == 0}" />
+          <label th:for="'rad' + ${iterStat.index}" th:text="${item.name}"></label><br>
+        </th:block>
+      </div>
+
+      <p class="section-title">▷ その他記入事項</p>
+      <textarea id="story" name="story" rows="3" maxlength="60" placeholder="ご希望や連絡事項があれば記入してください"></textarea>
+
+      <p>注文の品が完成した際に、<strong>✉</strong>を送らせていただきます。</p>
+
+      <input type="submit" name="submit2" value="注文する" class="submit-button" />
+    </form>
+    </div>
+
+    <div id="result">
+      <p id="user-list"></p>
+      <p id="result2"></p>
+    </div>
+
+    <button class="admin-button">
+      <a th:href="@{/login}">管理者メニューへ</a>
+    </button>
+
+    <footer>
+      <p class="footer-text">(c)2025 TEAM6 元煕、片平 予約注文システム</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

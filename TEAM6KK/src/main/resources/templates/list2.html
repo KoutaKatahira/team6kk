@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登録商品確認(管理者ページ) | 予約注文システム</title>
+</head>
+
+<body><center><!--
+  <div class="colora">
+    <h1><img th:src="${base64Data}">
+      <font color="#115511">管理者ページ</font>
+    </h1>
+  </div>-->
+  <Strong>◎登録商品確認</Strong>
+  <!--
+  ・名前:Aさん　　注文の品:ラーメン(500円)　
+  
+  <input type="submit" name="submit" value="通知" onclick="buttonClick2()">
+  <input type="submit" name="submit" value="受け取り済" onclick="buttonClick2()"><br> -->
+  <Form th:action="@{/call3}" method="post"><table>
+		<th>商品名</th>
+		<th>上位に移動</th>
+		<tr th:each="result : ${resultList}">
+			<td th:text="${result.name}"></td>
+			<td><input type="submit" name="sortNo" th:value="${result.ID}"></td>
+		</tr>
+	</table></Form>
+	・上位3つの商品がフォームに表示されます。<br>
+	<br><div class="colora"><Strong>◎フォーム内容変更</Strong>
+	<br><form th:action="@{/change}" method="POST">
+	登録する商品名を記入:<input type="search" name="itemname1" id="itemname1" placeholder="アイテムを記入" value="カレーライス(500円)">　<input type="submit" name="submit3" value="変更"></form>
+	
+	<br><a th:href="@{/reset}"><input type="button" value="選択肢リセット(カレーライス、ラーメン、ショートケーキに戻ります。)"></a></div>
+  <br><button><a th:href="@{/list}">管理者メニューTOPに戻る</a></button>　<button><a th:href="@{/index}">予約注文メニューを見る</a></button>　<button><a th:href="@{/login}">ログアウト</a></button>
+  <div id="result">
+    <p id="user-list"></p>
+    <p id="result2"></p>
+  </div>
+  <script src="script.js"></script><br></center>
+
+  (c)2025 KokusaiRikouCollege.
+</body>
+
+</html>

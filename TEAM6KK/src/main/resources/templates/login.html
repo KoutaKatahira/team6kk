@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> 
+     TEAM6DB パスワード:team6  管理者モードパスワード:KK0912 -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ログイン画面 | 予約注文システム</title>
+</head>
+
+<body><center>
+  <div class="colora">
+    <h1><img th:src="${base64Data}">
+      <font color="#115511"><img src="./image/i2.png" width="3.5%">　ここから先はログインが必要です！！</font>
+    </h1>
+  </div><strong>↓ユーザー名、パスワードを入力して下さい。</strong><Form th:action="@{/list}" method="post">
+  ユーザーID:<input type="search" name="username" id="username" placeholder="IDを入力"><br>
+  パスワード:<input type="password" name="pass" id="pass" placeholder="PASSを入力"><br>
+  <br><div class="btn">
+  <input type="submit" name="submit2" value="　　ログイン　　"></strong>　</Form>
+  
+  <Strong></Strong>
+
+  <br>
+  <div id="result">
+    <p id="user-list"></p>
+    <p id="result2"></p>
+  </div>
+  <script src="script.js"></script><br></center>
+
+  (c)2025 KokusaiRikouCollege.<button><a th:href="@{/index}">予約注文メニューに戻る</a></button></div>
+</body>
+
+</html>

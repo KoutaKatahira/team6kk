@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注文完了 - BOOKING SYSTEM</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" href="./image/logo2.png">
+  <style>
+    body {
+      background: linear-gradient(to right, rgb(75, 8, 97), rgb(125, 10, 39));
+      color: rgb(36, 36, 36);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .complete-container {
+      background-color: rgb(218, 218, 218);
+      border-radius: 10px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      color: rgb(32, 100, 242);
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #357ae8;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #5A8CF5;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+  <div class="complete-container">
+    <h1>注文完了</h1>
+    <p class="message">
+      ご注文ありがとうございます！<br>
+      注文内容を受け付けました。<br>
+      商品の準備ができ次第、<strong>✉ メール</strong>でご連絡いたします。
+    </p>
+    <a href="/index" class="btn">トップに戻る</a>
+  </div>
+  <footer>
+    (c)2025 TEAM6 元煕、片平 予約注文システム
+  </footer>
+</body>
+</html>

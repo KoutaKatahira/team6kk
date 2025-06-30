@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エラー | 予約注文システム</title>
+</head>
+
+<body><center>
+  <div class="colora">
+    <h1><img th:src="${base64Data}">
+      <font color="#115511">✖　認証に失敗しました。</font>
+    </h1>
+  </div>
+  ID、又はパスワードが違うため、ログインできませんでした。<br><br>
+
+<button><a th:href="@{/index}">予約注文メニューに戻る</a></button>
+  <br>
+  <div id="result">
+    <p id="user-list"></p>
+    <p id="result2"></p>
+  </div></center>
+  <!--<script src="script.js"></script><br>-->
+
+  (c)2025 KokusaiRikouCollege.
+</body>
+
+</html>

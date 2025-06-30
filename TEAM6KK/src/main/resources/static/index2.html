@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> -->
+	<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="icon" type="image/png" href="./image/経路探索アイスクン3.png">
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>経路探索 | ケイサーチ</title>
+</head>
+<body><center><div class="colorb">
+<h1><img th:src="${base64Data}"><font color="#ff2222"><img src="./image/経路探索2025-2.png" width="10%">　経路探索システム　3A_片平皓大　</font>
+<input type="submit" name="submit3" value="駅名検索システムへ！！" onclick="buttonClick5()"></h1>
+<h3>▼△　　 経路探索 　　△▼</h3>
+出発地と目的地の駅を入力すると、経路探索(目的地までの運賃を表示)ができます。<br>
+<input type="search" name="search2" id="search2" placeholder="出発地の駅を入力">　<input type="search" name="search3" id="search3" placeholder="目的地の駅を入力">　
+
+<strong><input type="submit" name="submit" value="経路探索する" onclick="buttonClick3()"></strong></div><!--<input type="submit" name="submit2" value="経路探索する" onclick="buttonClick2()">-->
+</center><div id = "result"><p id = "user-list"></p><p id = "result2"></p></div>
+<center><script src="./script.js"></script><br>
+
+<img src="./image/経路探索アイスクン4.png" width="1.5%"> 2024 K-project/KoutaKatahira. apicode by ©Val Laboratory Corporation.</center>
+<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15429.017172092443!2d140.10435267672074!3d35.61413313053083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602284b08e5183bd%3A0xe19a77ea5e06411c!2z5Y2D6JGJ6aeF!5e0!3m2!1sja!2sjp!4v1731391730971!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+地図はこちら<br>-->
+</body>
+</html>

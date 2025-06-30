@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<!--<html> <img src="./image/経路探索20251.png" width="50%"> -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>予約注文システム</title>
+</head>
+
+<body bgcolor="#eeeeee">
+	　チーム6　元煕、片平<br><center>
+  <div class="colorb">
+    <h1><img th:src="${base64Data}">
+     <font color="#ffffff"><img src="./image/i.png" width="3.5%"> 予約注文システム</font><br><font color="#ffa820">Pre-Ordering System</font>
+
+    </h1>
+  </div>
+  <br><Form th:action="@{/result}" method="post"><div class="colord">
+	  <fontcolor>◎名前、ネームアドレスを入力してください。</fontcolor><br>
+  名前:<input type="search" name="name" id="name" placeholder="名前を記入"><br>
+  ネームアドレス:<input type="email" name="address" id="address" placeholder="メールアドレスを記入">
+  <br><br>
+  <fontcolor>◎ご注文の品をお選びください。</fontcolor>
+  注文数:<input type="number" name = "number1" value="1" min="1" max="10"><br>
+
+<th:block th:each="item, iterStat : ${resultList}">
+    <input type="checkbox" th:id="'rad' + ${iterStat.index}" name="rad1" th:value="${item.name}" th:checked="${iterStat.index == 0}"/>
+    <label th:for="'rad' + ${iterStat.index}" th:text="${item.name}"></label><br>
+</th:block>
+
+<!--  <div>-->
+<!--    　<input type="radio" id="rad1" name="rad1" th:each="item : ${resultList}" th:value="${item.name}" checked />-->
+<!--    <label for="rad1"><label th:each="item : ${resultList}" th:text="${item.name}"></label>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    　<input type="radio" id="rad1" name="rad1" th:each="item : ${resultList}" th:value="${item.name}" checked />-->
+<!--    <label for="rad1"><label th:each="item : ${resultList}" th:text="${item.name}"></label>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    　<input type="radio" id="rad1" name="rad1" th:each="item : ${resultList}" th:value="${item.name}" checked />-->
+<!--    <label for="rad1"><label th:each="item : ${resultList}" th:text="${item.name}"></label>-->
+<!--  </div>-->
+  <!--
+    <input type="search" name="search2" id="search2" placeholder="出発地の駅を入力">　<input type="search" name="search3"
+      id="search3" placeholder="目的地の駅を入力">　
+  -->
+  <br>
+  <fontcolor>◎その他記入事項</fontcolor><br>
+  <textarea id="story" name="story" rows="3" cols="50" maxlength="60"></textarea><br>
+  </div>
+  注文の品が完成した際に、<strong>✉メール</strong>を送らせていただきます。
+  <br><strong><input type="submit" name="submit2" value="　　　　　　　注　　　　　　　文　　　　　　　"></strong></Form>
+  <!--<input type="submit" name="submit2" value="経路探索する" onclick="buttonClick2()">-->
+
+  <div id="result">
+    <p id="user-list"></p>
+    <p id="result2"></p>
+  </div>
+  <script src="script.js"></script></center>
+
+  <div class="colorb"><font color="#ffffff">　(c)2025 KokusaiRikouCollege.</font>
+  <button><a th:href="@{/login}">管理者メニューへ</a></button></div>
+</body>
+
+</html>

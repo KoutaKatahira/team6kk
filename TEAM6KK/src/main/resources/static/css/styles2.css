@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+/* ベースカラーの改善 */
+.colora {
+    background-color: rgb(214, 250, 217);
+    /*min-height: 175px;
+    max-width: 100%;
+    background-color: rgb(247, 148, 38);
+    */
+    
+    border-radius: 10px;
+    padding: 10px;
+}
+
+img{
+  transform: translateY(20%);
+}
+
+.colorb {
+    /*background: linear-gradient(to right, rgb(101, 13, 189), rgb(251, 19, 78));*/
+    background-color: rgb(10, 18, 169);
+    border-radius: 10px;
+    padding: 1px;
+}
+
+fontcolor {
+    color: rgb(10, 18, 169);
+    font-weight: bold;
+}
+
+/* 視覚的に魅力的なグラデーション */
+.colorc {
+    background: linear-gradient(to right, rgb(31, 63, 214), rgb(90, 140, 245));
+    min-height: 175px;
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 入力フォームの改善 */
+input[type="text"],
+button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #5a8cf5;
+    box-shadow: 0 0 5px rgba(90, 140, 245, 0.5);
+}
+
+.btn {
+	text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /*  */
+}
+
+button {
+    background-color: rgb(35, 75, 237);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 10, 181);
+}
+
+button2 {
+    background-color: rgb(255, 49, 54);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button2:hover {
+    background-color: rgb(240, 0, 6);
+}
+
+.colord {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 1px;
+    width: 450px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 10px auto;
+}
+th, td {
+	border: 1px solid #888;
+	padding: 2px;
+	text-align: center;
+}
+th {
+	background-color: rgba(152, 152, 152, 0.2);
+}
