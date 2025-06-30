@@ -1,5 +1,5 @@
 FROM maven:3-eclipse-temurin-17 AS build
-COPY ./ /home/app
+COPY ./TEAM6KK/ /home/app
 RUN cd /home/app && mvn clean package -Dmaven.test.skip=true
 FROM eclipse-temurin:17-alpine
 COPY --from=build /home/app/target/springboot-demo2-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
