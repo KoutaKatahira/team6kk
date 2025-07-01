@@ -11,11 +11,8 @@
   <title>リストの順番を変更しました | 予約注文システム</title>
 </head>
 
-<body><center>
-	<h1>✅商品の順番を並び替えました。</h1>
-	<button><a th:href="@{/list2}">商品管理に戻る</a></button>
-	<button><a th:href="@{/list}">管理者メニューTOPに戻る</a></button>
-	<button><a th:href="@{/index}">予約注文メニューを見る</a></button>
+<meta http-equiv="refresh" th:content="'0; URL=' + @{/list2}" />
+<body>
 </body>
 
 </html>

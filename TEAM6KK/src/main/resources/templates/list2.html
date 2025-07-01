@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>登録商品確認(管理者ページ) | 予約注文システム</title>
+  <title>商品確認・登録(管理者ページ) | 予約注文システム</title>
 </head>
 
 <body><center><!--
@@ -17,7 +17,7 @@
       <font color="#115511">管理者ページ</font>
     </h1>
   </div>-->
-  <Strong>◎登録商品確認</Strong>
+  <Strong>◎商品確認・登録</Strong>
   <!--
   ・名前:Aさん　　注文の品:ラーメン(500円)　
   
@@ -31,10 +31,12 @@
 			<td><input type="submit" name="sortNo" th:value="${result.ID}"></td>
 		</tr>
 	</table></Form>
-	・上位3つの商品がフォームに表示されます。<br>
-	<br><div class="colora"><Strong>◎フォーム内容変更</Strong>
+	<p th:text="・上位+${quantity}+つの商品がフォームに表示されます。"></p><br><form th:action="@{/call5}" method="POST">
+	表示対象商品数:<input type="number" name="number2" id="number2" value="1" min="1" th:max="${#lists.size(resultList)}" />
+	　<input type="submit" name="submit3" value="変更"></form>
+	<br><div class="colora"><Strong>◎商品登録フォーム</Strong>
 	<br><form th:action="@{/change}" method="POST">
-	登録する商品名を記入:<input type="search" name="itemname1" id="itemname1" placeholder="アイテムを記入" value="カレーライス(500円)">　<input type="submit" name="submit3" value="変更"></form>
+	登録する商品名を記入:<input type="search" name="itemname1" id="itemname1" placeholder="商品名を記入" value="カレーライス(500円)">　<input type="submit" name="submit3" value="登録"></form>
 	
 	<br><a th:href="@{/reset}"><input type="button" value="選択肢リセット(カレーライス、ラーメン、ショートケーキに戻ります。)"></a></div>
   <br><button><a th:href="@{/list}">管理者メニューTOPに戻る</a></button>　<button><a th:href="@{/index}">予約注文メニューを見る</a></button>　<button><a th:href="@{/login}">ログアウト</a></button>

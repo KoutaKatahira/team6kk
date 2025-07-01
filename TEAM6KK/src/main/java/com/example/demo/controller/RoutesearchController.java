@@ -26,6 +26,7 @@ public class RoutesearchController {
     int userID = 1;//ID割り当て
     int gouserID = 1;
     int menuID = 3; //メニュー用ID割り当て
+    int quantity = 3;   //商品の数
     String callMessage = "お待たせしました！！\\nご注文いただいた商品が完成いたしました。\\n本店までお越しください。"; //呼び出しメッセージ
     String subMessage = "予約注文していた商品が完成しました！！";
     //final MailSender mailSender = null;
@@ -56,7 +57,7 @@ public class RoutesearchController {
         */
         System.out.println("リストの数:"+menuID);
         //DBを使用する
-        List<Map<String, Object>> resultList = userRepository.sort();
+        List<Map<String, Object>> resultList = userRepository.sort(quantity);
         Collections.reverse(resultList);
         model.addAttribute("resultList", resultList);
         
@@ -231,7 +232,7 @@ public class RoutesearchController {
         //menuID = menuID;
         System.out.println("リストの数:"+menuID);
         //DBを使用する
-        List<Map<String, Object>> resultList = userRepository.sort();
+        List<Map<String, Object>> resultList = userRepository.sort(quantity);
         model.addAttribute("resultList", resultList);
         return "call4";
     }
@@ -274,6 +275,7 @@ public class RoutesearchController {
         //DBを使用する
         List<Map<String, Object>> resultList = userRepository.findAll2();
         model.addAttribute("resultList", resultList);
+        model.addAttribute("quantity", quantity);
         
         return "list2";
     }
@@ -302,6 +304,36 @@ public class RoutesearchController {
 
         //if(resultTest >= 1) {
         return "call3";
+        //}else {
+        //    return "miss";
+        //}
+    }
+    
+  //並び替え用
+    @RequestMapping(path = "/call5", method = RequestMethod.GET)
+    public String display12(Model model){
+        return "call5";
+    }
+    @RequestMapping(path = "/call5", method = RequestMethod.POST)
+    public String display12(int number2,Model model) {
+
+        quantity = number2; //数量変更
+      //DBを使用する
+        //int resultList = userRepository.itemSort(sortNo);
+        //model.addAttribute("resultList", resultList);
+        //model.addAttribute("name", sortNo);
+        //System.out.println("　");
+        //System.out.println("名前:"+name2);
+        //System.out.println("アドレス:"+address2);
+        //System.out.println("ID:"+codeid);
+        //System.out.println("ID:"+callNo);
+        //System.out.println("注文者にメッセージを送りました。");
+        //System.out.println("テスト送信の場合はGmailのメールリストを確認してください。");
+        //System.out.println("◎タイトル:"+message);
+        //System.out.println("◎メッセージ内容\nタイトル:"+subMessage+"\n内容:"+message);
+
+        //if(resultTest >= 1) {
+        return "call5";
         //}else {
         //    return "miss";
         //}

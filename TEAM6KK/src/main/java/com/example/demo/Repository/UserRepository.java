@@ -71,8 +71,8 @@ public class UserRepository {
         String sql = "SELECT COUNT(*) FROM Menu;";
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }
-    public List<Map<String, Object>> sort() {
-        return jdbcTemplate.queryForList("SELECT * FROM Menu ORDER BY id DESC LIMIT 3;");
+    public List<Map<String, Object>> sort(int quantity) {
+        return jdbcTemplate.queryForList("SELECT * FROM Menu ORDER BY id DESC LIMIT ?;", quantity);
     }
     
     public int menuChange(String itemname1,int menuID) {
