@@ -205,6 +205,7 @@ public class RoutesearchController {
                 mailSender.send(mailMessage);
             } catch (MailException e) {
                 System.out.println("例外を掴みました。");// TODO: エラー処理
+                System.out.println("以下の動作は無効となります。");
             }
         
     }
