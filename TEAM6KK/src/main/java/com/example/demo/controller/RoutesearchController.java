@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,9 @@ public class RoutesearchController {
     int quantity = 3;   //商品の数
     String callMessage = "お待たせしました！！\\nご注文いただいた商品が完成いたしました。\\n本店までお越しください。"; //呼び出しメッセージ
     String subMessage = "予約注文していた商品が完成しました！！";
-    //final MailSender mailSender = null;
+    
+    @Autowired
+    private JavaMailSender mailSender;
 
     //トップに戻る
     @GetMapping("/index")
@@ -181,30 +185,29 @@ public class RoutesearchController {
         //}
     }
     
-    public void MailUtil(String address, String name, String message) {
-        //mailSender = mailSender;
-
-        sendMail(address, name,message);
-    }
     
-    public void sendMail(String address, String name, String message) {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setFrom("pre-order-system@team6kk.jp"); // 送信元メールアドレス
-        mailMessage.setTo(address); // 送信先メールアドレス
-        //mailMessage.setCc(/* ccに入れるメールアドレス */);
-        //mailMessage.setBcc(/* bccに入れるメールアドレス */);
-        mailMessage.setSubject(subMessage);
-        mailMessage.setText(message);
+        public void MailUtil(String address, String name, String message) {
+            this.mailSender = mailSender;
 
-        /*
-         try {
-            mailSender.send(mailMessage);
-        } catch (MailException e) {
-            // TODO: エラー処理
+            sendMail(address, name,message);
         }
-         */
+        
+        public void sendMail(String address, String name, String message) {
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setFrom("pre-order-system@team6kk.jp"); // 送信元メールアドレス
+            mailMessage.setTo(address); // 送信先メールアドレス
+            //mailMessage.setCc(/* ccに入れるメールアドレス */);
+            //mailMessage.setBcc(/* bccに入れるメールアドレス */);
+            mailMessage.setSubject(subMessage);
+            mailMessage.setText(message);
+            
+             try {
+                mailSender.send(mailMessage);
+            } catch (MailException e) {
+                System.out.println("例外を掴みました。");// TODO: エラー処理
+            }
+        
     }
-    
   //フォーム設定変更
     @RequestMapping(path = "/change", method = RequestMethod.GET)
     public String display7(Model model) {

@@ -35,6 +35,12 @@ img{
     padding: 10px;
 }
 
+.colore {
+    background-color: rgb(241, 245, 58);
+    border-radius: 10px;
+    max-width: 70%;
+}
+
 img{
   transform: translateY(20%);
 }
