@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.example th{
+    background: rgb(192, 243, 223);
+}
+
+.example2 th{
+    background: rgb(235, 222, 250);
+}
+
 .complete-container {
       background-color: rgb(218, 218, 218);
       border-radius: 10px;
@@ -207,6 +215,18 @@ button2 {
 }
 
 button2:hover {
-    background-color: rgb(240, 0, 6);
+    background-color: rgb(213, 0, 5);
+}
+
+button3 {
+    background-color: rgb(35, 75, 237);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+button3:hover {
+    background-color: rgb(0, 10, 181);
 }
 
